@@ -1,16 +1,12 @@
 class CreateUsers < ActiveRecord::Migration[7.0]
   def up
     create_table :users do |t|
-      t.string :name
+      t.string :name, null: false
       t.string :photo
-      t.date :updated_at
-      t.date :created_at
-      t.string :bio
-      t.integer :posts_counter
-    end
-  end
+      t.text :bio
+      t.integer :posts_counter, default: 0
 
-  def down
-    drop_table :users
+      t.timestamps
+    end
   end
 end
