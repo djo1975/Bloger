@@ -26,6 +26,7 @@ def create_table_likes
     t.bigint 'posts_id', null: false
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.index ['author_id'], name: 'index_comments_on_author_id'
     t.index ['posts_id'], name: 'index_likes_on_posts_id'
   end
 end
