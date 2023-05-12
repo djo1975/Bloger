@@ -1,8 +1,0 @@
-Comment.create(text: "Ovo je prvi komentar", posts_id: 1, author_id: 2)
-Comment.create(text: "Ovo je drugi komentar", posts_id: 1, author_id: 1)
-Comment.create(text: "Ovo je treći komentar", posts_id: 2, author_id: 2)
-Comment.create(text: "Ovo je četvrti komentar", posts_id: 2, author_id: 1)
-Comment.create(text: "Ovo je peti komentar", posts_id: 2, author_id: 2)
-Comment.create(text: "Ovo je šesti komentar", posts_id: 3, author_id: 1)
-Comment.create(text: "Ovo je sedmi komentar", posts_id: 3, author_id: 2)
-Comment.create(text: "Ovo je osmi komentar", posts_id: 4, author_id: 1)
