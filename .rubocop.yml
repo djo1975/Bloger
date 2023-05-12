@@ -16,8 +16,12 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  IgnoredMethods: ['describe']
+  Exclude:
+    - 'db/schema.rb'
+  IgnoredMethods:
+    - describe
   Max: 30
+
 
 
 Style/Documentation:

@@ -8,23 +8,23 @@ CREATE TABLE User (
     posts_counter INTEGER
 );
 
-CREATE TABLE Post (
-    id SERIAL PRIMARY KEY,
-    author_id INTEGER REFERENCES User(id),
-    created_at DATE,
-    updated_at DATE
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  text TEXT,
+  comments_counter INTEGER DEFAULT 0,
+  likes_counter INTEGER DEFAULT 0,
+  author_id INTEGER NOT NULL REFERENCES users(id),
+  created_at TIMESTAMP NOT NULL,
+  updated_at TIMESTAMP NOT NULL
 );
 
 CREATE TABLE Like (
     id SERIAL PRIMARY KEY,
     author_id INTEGER REFERENCES User(id),
     post_id INTEGER REFERENCES Post(id),
-    title VARCHAR(255),
-    text VARCHAR(555),
     created_at DATE,
     updated_at DATE,
-    comments_counter INTEGER,
-    links_counter INTEGER
 );
 
 CREATE TABLE Comment (
