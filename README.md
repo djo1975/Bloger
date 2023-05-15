@@ -21,7 +21,7 @@
 
 # 📖 Blog App <a name="about-blog-project"></a>
 
-This is a Blog App build with Rails. In this project, you will add validations to your models and create specs for them.
+This is a Blog App build with Rails. In this project, I will create all controllers and views for my Blog app. As I won't be processing any data yet, I will add simple placeholders for my views with plain HTML.
 
 ## 🛠 Built With <a name="built-with"></a>
 
