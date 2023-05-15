@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @user = User.find(params[:user_id])
     @post = @user.posts.find(params[:id])
     @comments = @post.comments.includes(:author).paginate(page: params[:page], per_page: 10)
-    @likes_count = @post.likes.count
     @comments_count = @post.comments.count
+    @likes_count = @post.likes.size
   end
 end
