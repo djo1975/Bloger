@@ -1,0 +1,13 @@
+<h1>Users</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>
+
+<h2>Recent Posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= post.title %></li>
+  <% end %>
+</ul>
