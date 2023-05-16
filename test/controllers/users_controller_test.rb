@@ -1,13 +1,23 @@
+# test/controllers/users_controller_test.rb
 require 'test_helper'
 
-class ArticlesControllerTest < ActionDispatch::IntegrationTest
+class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @user = users(:one)
     @article = articles(:one)
   end
 
   test 'should get index' do
-    get articles_url
+    get users_url
     assert_response :success
+    assert_template :index
+  end
+
+  test 'should show user' do
+    get user_url(@user)
+    assert_response :success
+    assert_template :show
+    assert_select 'h1', @user.name
   end
 
   test 'should get new' do
@@ -19,13 +29,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Article.count') do
       post articles_url, params: { article: {} }
     end
-
     assert_redirected_to article_url(Article.last)
-  end
-
-  test 'should show article' do
-    get article_url(@article)
-    assert_response :success
   end
 
   test 'should get edit' do
@@ -42,7 +46,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Article.count', -1) do
       delete article_url(@article)
     end
-
     assert_redirected_to articles_url
   end
 end
