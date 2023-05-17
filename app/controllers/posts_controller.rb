@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include WillPaginate::ViewHelpers
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 5)
@@ -11,6 +13,7 @@ class PostsController < ApplicationController
     @comments_count = @post.comments.count
     @likes_count = @post.likes.size
   end
+
   private
 
   def post_params

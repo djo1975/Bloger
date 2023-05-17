@@ -58,3 +58,17 @@ h2 {
     border: 1px solid;
     width: 100%;
   }
+  .pandh {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 4rem;
+    margin-right: 4rem;
+      } 
+      .user {
+        display: flex;
+        gap: 5rem;
+          }
+.list {
+    display: flex;
+    flex-direction: column;
+}

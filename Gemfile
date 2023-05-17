@@ -32,7 +32,9 @@ gem 'jbuilder'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
+gem 'bootstrap_pagination'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 

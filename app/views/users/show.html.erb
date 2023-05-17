@@ -20,23 +20,24 @@
 
 <ul>
   <% if @user.posts.present? %>
-    <% @user.posts.each do |post| %>
-      <li>
-        <div class="post">
-          <%= link_to post_path(post) do %>
-            <h4>Post #<%= post.id %></h4>
-          <% end %>
-          <p><%= post.text %></p>
-          <p>Likes: <%= post.likes_counter %></p>
-          <p>Comments: <%= post.comments_counter %></p>
-        </div>
-      </li>
-    <% end %>
-  <% else %>
+  <% @user.posts.each_with_index do |post, index| %>
     <li>
       <div class="post">
-        <p>No posts available</p>
+        <%= link_to post_path(user_id: @user.id, id: post.id) do %>
+          <h4>Post #<%= index + 1 %></h4>
+        <% end %>
+        <p><%= post.text %></p>
+        <p>Likes: <%= post.likes_counter %></p>
+        <p>Comments: <%= post.comments_counter %></p>
       </div>
     </li>
   <% end %>
-</ul>
+<% else %>
+  <li>
+    <div class="post">
+      <p>No posts available</p>
+    </div>
+  </li>
+<% end %>
+
+<%= link_to "See All Posts", user_posts_path(user_id: @user.id) %>

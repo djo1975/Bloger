@@ -1,4 +1,8 @@
-<li>
+<head>
+  <link rel="stylesheet" href="<%= asset_path('application.css') %>">
+</head>
+
+<div class="user">
   <div class="user-profile">
     <% if @user.photo.present? %>
       <%= image_tag @user.photo, alt: "Profile Picture", width: "100", height: "100" %>
@@ -11,15 +15,15 @@
     <h3><%= @user.name %></h3>
     <p>Number of posts: <%= @user.posts.count %></p>
   </div>
-</li>
+</div>
 
 <ul>
   <% if @user.posts.present? %>
-    <% @user.posts.each do |post| %>
-      <li>
+    <% @user.posts.paginate(page: params[:page], per_page: 2).each_with_index do |post, index| %>
+      <li class="list">
         <div class="post">
-          <%= link_to post_path(post) do %>
-            <h4>Post #<%= post.id %></h4>
+          <%= link_to post_path(user_id: @user.id, id: post.id) do %>
+            <h4>Post #<%= (params[:page].to_i - 1) * 2 + index + 1 %></h4>
           <% end %>
           <p><%= post.text %></p>
           <p>Likes: <%= post.likes_counter %></p>
@@ -28,7 +32,7 @@
 
         <div>
           <ul>
-            <% post.comments.each do |comment| %>
+            <% post.comments.limit(5).each do |comment| %>
               <li><%= comment.text %></li>
             <% end %>
           </ul>
@@ -44,4 +48,7 @@
   <% end %>
 </ul>
 
-<%= will_paginate @user.posts.paginate(page: params[:page], per_page: 5) %>
+<div class="pandh">
+  <%= will_paginate @user.posts.paginate(page: params[:page], per_page: 2), renderer: BootstrapPagination::Rails, previous_label: false, next_label: false, class: 'paginate-button' %>
+  <%= link_to "Home", users_path, class: "home-link" %>
+</div>
