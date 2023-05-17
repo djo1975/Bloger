@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+ .user-profile {
+    margin-bottom: 10px;
+  }
+  
+  .user-profile img {
+   height: 16,6%;
+  }
+  
+  .user-profile p {
+    font-style: italic;
+  }
+  
+  .user-info {
+    display: flex;
+    gap: 5rem;
+    border: 3px solid;
+    width: 70%;
+    margin-bottom: 1rem;
+  }
+  li {
+display: flex;
+gap: 5rem;
+  }
+h2 {
+    margin-left: 1rem;
+}
+  h3 {
+    margin: auto;
+  }
+
+  p {
+    margin-right: 1rem;
+    margin-top: 3rem;
+    font-size: x-large;
+  }
+  .bio {
+    display: flex;
+    border: 3px solid;
+  }
+  .post {
+    display: flex;
+    gap: 5rem;
+    border: 1px solid;
+    width: 100%;
+  }

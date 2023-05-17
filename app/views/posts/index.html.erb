@@ -1,5 +1,47 @@
-<h1>Posts</h1>
-<% @posts.each do |post| %>
-  <h2><%= post.title %></h2>
-  <p><%= post.text %></p>
-<% end %>
+<li>
+  <div class="user-profile">
+    <% if @user.photo.present? %>
+      <%= image_tag @user.photo, alt: "Profile Picture", width: "100", height: "100" %>
+    <% else %>
+      <p>No Profile Picture</p>
+    <% end %>
+  </div>
+
+  <div class="user-info">
+    <h3><%= @user.name %></h3>
+    <p>Number of posts: <%= @user.posts.count %></p>
+  </div>
+</li>
+
+<ul>
+  <% if @user.posts.present? %>
+    <% @user.posts.each do |post| %>
+      <li>
+        <div class="post">
+          <%= link_to post_path(post) do %>
+            <h4>Post #<%= post.id %></h4>
+          <% end %>
+          <p><%= post.text %></p>
+          <p>Likes: <%= post.likes_counter %></p>
+          <p>Comments: <%= post.comments_counter %></p>
+        </div>
+
+        <div>
+          <ul>
+            <% post.comments.each do |comment| %>
+              <li><%= comment.text %></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+    <% end %>
+  <% else %>
+    <li>
+      <div class="post">
+        <p>No posts available</p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @user.posts.paginate(page: params[:page], per_page: 5) %>

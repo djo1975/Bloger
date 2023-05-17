@@ -11,4 +11,9 @@ class PostsController < ApplicationController
     @comments_count = @post.comments.count
     @likes_count = @post.likes.size
   end
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end
