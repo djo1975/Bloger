@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 5)
+    @posts = @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: 2)
   end
 
   def show
@@ -13,6 +13,9 @@ class PostsController < ApplicationController
     @comments_count = @post.comments.count
     @likes_count = @post.likes.size
   end
+  
+  
+  
 
   private
 

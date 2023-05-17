@@ -11,7 +11,7 @@ RSpec.describe PostsController, type: :request do
       get "/users/#{user.id}/posts"
 
       expect(assigns(:user)).to eq(user)
-      expect(assigns(:posts)).to eq([post1, post2])
+      expect(assigns(:posts)).to eq([post2, post1])
     end
 
     it 'renders the index template' do

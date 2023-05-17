@@ -19,11 +19,11 @@
 
 <ul>
   <% if @user.posts.present? %>
-    <% @user.posts.paginate(page: params[:page], per_page: 2).each_with_index do |post, index| %>
+    <% @user.posts.paginate(page: params[:page], per_page: (params[:per_page] || 2).to_i).each_with_index do |post, index| %>
       <li class="list">
         <div class="post">
           <%= link_to post_path(user_id: @user.id, id: post.id) do %>
-            <h4>Post #<%= (params[:page].to_i - 1) * 2 + index + 1 %></h4>
+<h4>Post #<%= (params[:page].to_i) * (params[:per_page] || 2).to_i + index + 1 %></h4>
           <% end %>
           <p><%= post.text %></p>
           <p>Likes: <%= post.likes_counter %></p>
@@ -49,6 +49,7 @@
 </ul>
 
 <div class="pandh">
-  <%= will_paginate @user.posts.paginate(page: params[:page], per_page: 2), renderer: BootstrapPagination::Rails, previous_label: false, next_label: false, class: 'paginate-button' %>
   <%= link_to "Home", users_path, class: "home-link" %>
+  <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: 5), class: "paginate-link" %>
+    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
 </div>
