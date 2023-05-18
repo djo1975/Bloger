@@ -19,11 +19,11 @@
 
 <ul>
   <% if @user.posts.present? %>
-    <% @user.posts.paginate(page: params[:page], per_page: (params[:per_page] || 2).to_i).each_with_index do |post, index| %>
+    <% @user.posts.order(created_at: :desc).paginate(page: params[:page], per_page: (params[:per_page] || 2).to_i).each_with_index do |post, index| %>
       <li class="list">
         <div class="post">
           <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
-<h4>Post #<%= (params[:page].to_i) * (params[:per_page] || 2).to_i + index + 1 %></h4>
+            <h4>Post #<%= @user.posts.count - ((params[:page].to_i - 1) * (params[:per_page] || 2).to_i) - index %></h4>
           <% end %>
           <p><%= post.text %></p>
           <p>Likes: <%= post.likes_counter %></p>
@@ -33,7 +33,7 @@
         <div>
           <ul>
             <% post.comments.limit(5).each do |comment| %>
-<li><%= comment.author.name %> : <%= comment.text %></li>
+              <li><%= comment.author.name %> : <%= comment.text %></li>
             <% end %>
           </ul>
         </div>
@@ -51,5 +51,5 @@
 <div class="pandh">
   <%= link_to "Back to Users", users_path, class: "home-link" %>
   <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: 5), class: "home-link" %>
-    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "home-link" %>
+  <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "home-link" %>
 </div>
