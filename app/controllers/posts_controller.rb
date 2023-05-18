@@ -24,6 +24,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def new
+    @user = User.find(1) # Pronalazak korisnika sa ID-om 1
+    @post = @user.posts.build
+  end
+
   def like
     @post = Post.find(params[:id])
     Like.create(post: @post, author: current_user)
