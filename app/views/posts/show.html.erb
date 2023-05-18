@@ -4,7 +4,9 @@
 <p>Likes: <%= @post.likes_counter %></p>
 <p>Comments: <%= @post.comments_counter %></p>
 </div>
-<div>
+<%= button_to like_post_path(@post.id), method: :post, remote: true, id: 'like-button' do %>
+  Like
+<% end %>
           <ul>
             <% @post.comments.limit(10).each do |comment| %>
 <li><%= comment.author.name %> : <%= comment.text %></li>

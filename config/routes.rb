@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get 'users/:user_id/all_posts', to: 'posts#all_posts', as: 'all_posts_user'
   get 'users/:user_id/recent_posts', to: 'posts#recent', as: 'recent_posts'
 
+  resources :posts do
+    post 'like', on: :member
+  end
   resources :users
 
   resources :posts
