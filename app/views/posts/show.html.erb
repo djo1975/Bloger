@@ -1,19 +1,29 @@
 <div class="post">
-<h1><%= @post.title %></h1>
-<p><%= @post.text %></p>
-<p>Likes: <%= @post.likes_counter %></p>
-<p>Comments: <%= @post.comments_counter %></p>
+  <h1><%= @post.title %></h1>
+  <p><%= @post.text %></p>
+  <p>Likes: <%= @post.likes_counter %></p>
+  <p>Comments: <%= @post.comments_counter %></p>
 </div>
-<%= button_to like_post_path(@post.id), method: :post, remote: true, id: 'like-button' do %>
-  Like
-<% end %>
-          <ul>
-            <% @post.comments.limit(10).each do |comment| %>
-<li><%= comment.author.name %> : <%= comment.text %></li>
-            <% end %>
-          </ul>
-        </div>
+
+<div class="post-comment">
+  <%= form_with url: user_post_comments_path(user_id: @user.id, post_id: @post.id), local: true do |form| %>
+    <%= form.text_field :text, name: 'comment[text]' %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= form.submit "Add Comment" %>
+  <% end %>
+
+  <%= button_to like_user_post_path(@post.id), method: :post, remote: true, id: 'like-button' do %>
+    Like
+  <% end %>
+</div>
+
+<ul>
+  <% @post.comments.order(created_at: :desc).limit(10).each do |comment| %>
+    <li><%= comment.author.name %> : <%= comment.text %></li>
+  <% end %>
+</ul>
+
 <div class="pandh">
-  <%= link_to "Back to Usres", users_path, class: "home-link" %>
-    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
+  <%= link_to "Back to Users", users_path, class: "home-link" %>
+  <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
 </div>
