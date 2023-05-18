@@ -1,5 +1,55 @@
-<h1>Posts</h1>
-<% @posts.each do |post| %>
-  <h2><%= post.title %></h2>
-  <p><%= post.text %></p>
-<% end %>
+<head>
+  <link rel="stylesheet" href="<%= asset_path('application.css') %>">
+</head>
+
+<div class="user">
+  <div class="user-profile">
+    <% if @user.photo.present? %>
+      <%= image_tag @user.photo, alt: "Profile Picture", width: "100", height: "100" %>
+    <% else %>
+      <p>No Profile Picture</p>
+    <% end %>
+  </div>
+
+  <div class="user-info">
+    <h3><%= @user.name %></h3>
+    <p>Number of posts: <%= @user.posts.count %></p>
+  </div>
+</div>
+
+<ul>
+  <% if @user.posts.present? %>
+    <% @user.posts.paginate(page: params[:page], per_page: (params[:per_page] || 2).to_i).each_with_index do |post, index| %>
+      <li class="list">
+        <div class="post">
+          <%= link_to post_path(user_id: @user.id, id: post.id) do %>
+<h4>Post #<%= (params[:page].to_i) * (params[:per_page] || 2).to_i + index + 1 %></h4>
+          <% end %>
+          <p><%= post.text %></p>
+          <p>Likes: <%= post.likes_counter %></p>
+          <p>Comments: <%= post.comments_counter %></p>
+        </div>
+
+        <div>
+          <ul>
+            <% post.comments.limit(5).each do |comment| %>
+<li><%= comment.author.name %> : <%= comment.text %></li>
+            <% end %>
+          </ul>
+        </div>
+      </li>
+    <% end %>
+  <% else %>
+    <li>
+      <div class="post">
+        <p>No posts available</p>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+<div class="pandh">
+  <%= link_to "Back to Users", users_path, class: "home-link" %>
+  <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: 5), class: "home-link" %>
+    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "home-link" %>
+</div>

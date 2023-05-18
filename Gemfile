@@ -32,7 +32,9 @@ gem 'jbuilder'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
+gem 'bootstrap_pagination'
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -59,7 +61,7 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
-  gem 'rspec-rails'
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
@@ -69,6 +71,7 @@ group :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
   gem 'webdrivers'

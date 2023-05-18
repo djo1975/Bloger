@@ -1,13 +1,21 @@
-<h1>Users</h1>
+<head>
+  <link rel="stylesheet" href="<%= asset_path('application.css') %>">
+</head>
+
 <ul>
   <% @users.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
-</ul>
-
-<h2>Recent Posts</h2>
-<ul>
-  <% @posts.each do |post| %>
-    <li><%= post.title %></li>
+    <li>
+      <div class="user-profile">
+        <% if user.photo.present? %>
+          <%= image_tag user.photo, alt: "Profile Picture", width: "100", height: "100" %>
+        <% else %>
+          <p>No Profile Picture</p>
+        <% end %>
+      </div>
+      <div class="user-info">
+        <%= link_to user.name, user_path(user) %>
+        <p>Number of posts: <%= user.posts_counter %></p>
+      </div>
+    </li>
   <% end %>
 </ul>
