@@ -13,9 +13,6 @@ class PostsController < ApplicationController
     @comments_count = @post.comments.count
     @likes_count = @post.likes.size
   end
-  
-  
-  
 
   private
 

@@ -13,62 +13,115 @@
  *= require_tree .
  *= require_self
  */
- .user-profile {
-    margin-bottom: 10px;
-  }
-  
-  .user-profile img {
-   height: 16,6%;
-  }
-  
-  .user-profile p {
-    font-style: italic;
-  }
-  
-  .user-info {
-    display: flex;
-    gap: 5rem;
-    border: 3px solid;
-    width: 70%;
-    margin-bottom: 1rem;
-  }
-  li {
-display: flex;
-gap: 5rem;
-  }
-h2 {
-    margin-left: 1rem;
+.user-profile {
+  margin-bottom: 10px;
 }
-  h3 {
-    margin: auto;
-  }
 
-  p {
-    margin-right: 1rem;
-    margin-top: 3rem;
-    font-size: x-large;
-  }
-  .bio {
-    display: flex;
-    border: 3px solid;
-  }
-  .post {
-    display: flex;
-    gap: 5rem;
-    border: 1px solid;
-    width: 100%;
-  }
-  .pandh {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 4rem;
-    margin-right: 4rem;
-      } 
-      .user {
-        display: flex;
-        gap: 5rem;
-          }
+.user-profile img {
+  height: 16, 6%;
+}
+
+p {
+  margin-right: 1rem;
+  margin-top: 3rem;
+  font-size: x-large;
+}
+
+.user-profile p {
+  font-style: italic;
+}
+
+.user-info {
+  display: flex;
+  gap: 5rem;
+  border: 3px solid;
+  width: 70%;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  gap: 5rem;
+}
+
+h2 {
+  margin-left: 1rem;
+}
+
+h3 {
+  margin: auto;
+  font-size: xx-large;
+}
+
+.bio {
+  display: flex;
+  border: 3px solid;
+}
+
+.post {
+  display: flex;
+  gap: 5rem;
+  border: 1px solid;
+  width: 100%;
+}
+
+.pandh {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+.user {
+  display: flex;
+  gap: 5rem;
+}
+
 .list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  font-size: x-large;
+  margin-top: 1rem;
+  color: black;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  border: 1px solid;
+}
+
+h4 {
+  margin-left: 1rem;
+  font-size: x-large;
+  margin-right: 1rem;
+}
+
+.buttons {
+  display: flex;
+
+  /* gap: 9rem; */
+  justify-content: space-between;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.home-link {
+  border: 1px solid;
+  padding: 1rem;
+}
+
+.back-link {
+  border: 1px solid;
+  padding: 1rem;
+}
+
+h1 {
+  margin-left: 1rem;
 }

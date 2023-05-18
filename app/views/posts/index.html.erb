@@ -33,7 +33,7 @@
         <div>
           <ul>
             <% post.comments.limit(5).each do |comment| %>
-              <li><%= comment.text %></li>
+<li><%= comment.author.name %> : <%= comment.text %></li>
             <% end %>
           </ul>
         </div>
@@ -49,7 +49,7 @@
 </ul>
 
 <div class="pandh">
-  <%= link_to "Home", users_path, class: "home-link" %>
-  <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: 5), class: "paginate-link" %>
-    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
+  <%= link_to "Back to Users", users_path, class: "home-link" %>
+  <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: 5), class: "home-link" %>
+    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "home-link" %>
 </div>

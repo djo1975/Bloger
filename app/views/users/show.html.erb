@@ -1,7 +1,7 @@
 <li>
   <div class="user-profile">
     <% if @user.photo.present? %>
-      <%= image_tag @user.photo, alt: "Profile Picture", width: "100", height: "100" %>
+      <%= image_tag @user.photo, alt: "Profile Picture", width: "120", height: "130" %>
     <% else %>
       <p>No Profile Picture</p>
     <% end %>
@@ -20,25 +20,28 @@
 
 <ul>
   <% if @user.posts.present? %>
-  <% @user.posts.each_with_index do |post, index| %>
+    <% @user.posts.limit(3).each_with_index do |post, index| %>
+      <li>
+        <div class="post">
+          <%= link_to post_path(user_id: @user.id, id: post.id) do %>
+            <h4>Post #<%= index + 1 %></h4>
+          <% end %>
+          <p><%= post.text %></p>
+          <p>Likes: <%= post.likes_counter %></p>
+          <p>Comments: <%= post.comments_counter %></p>
+        </div>
+      </li>
+    <% end %>
+  <% else %>
     <li>
       <div class="post">
-        <%= link_to post_path(user_id: @user.id, id: post.id) do %>
-          <h4>Post #<%= index + 1 %></h4>
-        <% end %>
-        <p><%= post.text %></p>
-        <p>Likes: <%= post.likes_counter %></p>
-        <p>Comments: <%= post.comments_counter %></p>
+        <p>No posts available</p>
       </div>
     </li>
   <% end %>
-<% else %>
-  <li>
-    <div class="post">
-      <p>No posts available</p>
-    </div>
-  </li>
-<% end %>
+</ul>
 
-<%= link_to "See All Posts", user_posts_path(user_id: @user.id) %>
-<%= link_to "Home", users_path, class: "home-link" %>
+<div class="buttons">
+<%= link_to "See All Posts", user_posts_path(user_id: @user.id), class: "home-link" %>
+<%= link_to "Back to Users", users_path, class: "home-link" %>
+</div>
