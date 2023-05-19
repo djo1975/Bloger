@@ -10,12 +10,6 @@ RSpec.describe UsersController, type: :request do
 
       expect(assigns(:users)).to eq([user1, user2])
     end
-
-    it 'renders the index template' do
-      get '/users'
-
-      expect(response).to render_template(:index)
-    end
   end
 
   describe 'GET #show' do

@@ -1,17 +1,25 @@
 <div class="post">
-<h1><%= @post.title %></h1>
-<p><%= @post.text %></p>
-<p>Likes: <%= @post.likes_counter %></p>
-<p>Comments: <%= @post.comments_counter %></p>
+  <h1><%= @post.title %></h1>
+  <p><%= @post.text %></p>
+  <p>Likes: <%= @post.likes_counter %></p>
+  <p>Comments: <%= @post.comments_counter %></p>
 </div>
-<div>
-          <ul>
-            <% @post.comments.limit(10).each do |comment| %>
-<li><%= comment.author.name %> : <%= comment.text %></li>
-            <% end %>
-          </ul>
-        </div>
+
+<div class="post-comment">
+  <%= render "comments/new" %>
+
+  <%= button_to like_user_post_path(@post.id), method: :post, remote: true, id: 'like-button' do %>
+    Like
+  <% end %>
+</div>
+
+<ul>
+  <% @post.comments.order(created_at: :desc).limit(10).each do |comment| %>
+    <li><%= comment.author.name %> : <%= comment.text %></li>
+  <% end %>
+</ul>
+
 <div class="pandh">
-  <%= link_to "Back to Usres", users_path, class: "home-link" %>
-    <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
+  <%= link_to "Back to Users", users_path, class: "home-link" %>
+  <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
 </div>

@@ -23,7 +23,7 @@
     <% @user.posts.limit(3).each_with_index do |post, index| %>
       <li>
         <div class="post">
-          <%= link_to post_path(user_id: @user.id, id: post.id) do %>
+          <%= link_to user_post_path(user_id: @user.id, id: post.id) do %>
             <h4>Post #<%= index + 1 %></h4>
           <% end %>
           <p><%= post.text %></p>

@@ -1,0 +1,26 @@
+<h2>Add Post</h2>
+
+<%= form_with(model: [@user, @post], url: user_posts_path(@user), method: :post) do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div>
+    <%= form.submit 'Create Post' %>
+  </div>
+<% end %>
+<ul>
+  <% @post.comments.order(created_at: :desc).limit(10).each do |comment| %>
+    <li><%= comment.author.name %> : <%= comment.text %></li>
+  <% end %>
+</ul>
+<div class="pandh">
+  <%= link_to "Back to Users", users_path, class: "home-link" %>
+  <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "back-link" %>
+</div>

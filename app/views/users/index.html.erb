@@ -1,7 +1,7 @@
 <head>
   <link rel="stylesheet" href="<%= asset_path('application.css') %>">
 </head>
-
+<%= link_to "Add Post", new_user_post_path(user_id: current_user.id), class: "add-post-button" %>
 <ul>
   <% @users.each do |user| %>
     <li>
