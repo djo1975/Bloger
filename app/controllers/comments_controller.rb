@@ -15,10 +15,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def new
-    @comment = Comment.new
-  end
-
   private
 
   def comment_params
