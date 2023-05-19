@@ -6,11 +6,7 @@
 </div>
 
 <div class="post-comment">
-  <%= form_with url: user_post_comments_path(user_id: @user.id, post_id: @post.id), local: true do |form| %>
-    <%= form.text_field :text, name: 'comment[text]' %>
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <%= form.submit "Add Comment" %>
-  <% end %>
+  <%= render "comments/new" %>
 
   <%= button_to like_user_post_path(@post.id), method: :post, remote: true, id: 'like-button' do %>
     Like
