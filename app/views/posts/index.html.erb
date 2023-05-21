@@ -50,6 +50,6 @@
 
 <div class="pandh">
   <%= link_to "Back to Users", users_path, class: "home-link" %>
-  <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: 5), class: "home-link" %>
+  <%= link_to "Paginate", user_posts_path(user_id: @user.id, page: params[:page], per_page: @all_posts.size), class: "home-link" %>
   <%= link_to "Back to Posts", user_posts_path(user_id: @user.id), class: "home-link" %>
 </div>

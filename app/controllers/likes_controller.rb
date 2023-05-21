@@ -3,8 +3,10 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @like = @current_user.likes.new(post_id: @post.id)
 
-    respond_to do |format|
-      format.html { redirect_to @post }
+    if @like.save
+      render partial: 'likes/like', locals: { post: @post }
+    else
+      redirect_to @post, alert: 'Failed to add like.'
     end
   end
 end
