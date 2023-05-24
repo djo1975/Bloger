@@ -33,25 +33,22 @@ RSpec.describe 'User show page:', type: :feature do
   end
   scenario 'I can see the users first 3 posts' do
     visit user_path(@user1.id)
-    expect(page).to have_content(@user1.recent_three_posts.first.title)
-    expect(page).to have_content(@user1.recent_three_posts.second.title)
-    expect(page).to have_content(@user1.recent_three_posts.third.title)
+    expect(page).to have_content(@user1.recent_three_posts.order(created_at: :desc).first.title)
+    expect(page).to have_content(@user1.recent_three_posts.order(created_at: :desc).second.title)
+    expect(page).to have_content(@user1.recent_three_posts.order(created_at: :desc).third.title)
   end
-  
   scenario 'I can see a button that lets me view all of a user\'s posts' do
     visit user_path(@user1.id)
     expect(page).to have_link('See All Posts', href: user_posts_path(user_id: @user1.id))
   end
-  
-  scenario 'When I click a user\'s post, it redirects me to that post\'s show page' do
+
+  scenario "When I click a user's post, it redirects me to that post's show page" do
     visit user_path(@user1.id)
-    post_id = @user1.recent_three_posts.first.id
-    click_link("Post #1") # Promenite naslov posta ako nije "Post #1"
-    expect(page).to have_current_path(user_post_path(@user1.id, post_id))
+    post_id = @user1.recent_three_posts.order(created_at: :desc).first(3).last.id
+    click_link('Post #1') # Promeniti tekst veze ako je potrebno
+    expect(page).to have_current_path(user_posts_path(@user1.id, post_id))
   end
-  
-  
-  
+
   scenario 'When I click the see all posts button, it redirects me to the users posts index page' do
     visit user_path(@user1.id)
     click_link('See All Posts')
