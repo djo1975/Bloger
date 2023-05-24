@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @all_posts = @user.posts.order(created_at: :desc)
+    @all_posts = @user.posts.includes(:author).order(created_at: :desc)
 
     @posts = if params[:page].present?
                @all_posts
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = @user.posts.includes(comments: :author).find(params[:id])
     @comments = @post.comments.includes(:author).paginate(page: params[:page], per_page: 10)
     @comments_count = @post.comments.count
     @likes_count = @post.likes.size

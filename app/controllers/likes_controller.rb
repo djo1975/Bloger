@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   def create
-    @post = Post.find(params[:post_id])
-    @like = @current_user.likes.new(post_id: @post.id)
+    @post = Post.includes(:likes).find(params[:post_id])
+    @like = current_user.likes.new(post: @post)
 
     if @like.save
       render partial: 'likes/like', locals: { post: @post }
