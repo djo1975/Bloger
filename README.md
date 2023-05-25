@@ -1,5 +1,8 @@
-# Blog_App
 <a name="readme-top"></a>
+<!-- TABLE OF CONTENTS -->
+<div align = "center">
+  <img src="./personal/IM logo.png alt="logo" width="140"  height="auto" />
+</div>
 
 # 📗 Table of Contents
 
