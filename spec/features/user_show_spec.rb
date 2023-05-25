@@ -37,9 +37,9 @@ RSpec.describe 'User show page:', type: :feature do
   end
   scenario 'I can see the users first 3 posts' do
     visit user_path(@user1.id)
-    expect(page).to have_content(@user1.recent_three_posts.first.title)
-    expect(page).to have_content(@user1.recent_three_posts.second.title)
     expect(page).to have_content(@user1.recent_three_posts.third.title)
+    expect(page).to have_content(@user1.recent_three_posts.second.title)
+    expect(page).to have_content(@user1.recent_three_posts.first.title)
   end
   scenario 'I can see a button that lets me view all of a user\'s posts' do
     visit user_path(@user1.id)
