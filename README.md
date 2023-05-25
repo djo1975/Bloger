@@ -83,6 +83,14 @@ To run the project, execute the following command in the terminal:
 - Twitter: [@Ilic](https://twitter.com/MladanIlic)
 - LinkedIn: [@Ilic] (https://www.linkedin.com/in/mladanilic/)
 
+👤 **Jugoslav Achkoski**
+
+- GitHub: [@github](https://github.com/jugosack)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/jugoslavachkoski/)
+- Twitter: [twitter](https://twitter.com/Jugoslav_A)
+- Facebook: [facebook](https://www.facebook.com/jugoslav.ackoski/)
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 

@@ -1,16 +1,13 @@
 <div class="post">
   <h1><%= @post.title %></h1>
   <p><%= @post.text %></p>
-  <p>Likes: <%= @post.likes_counter %></p>
+  <%= render partial: 'posts/likes/like', locals: { post: @post } %>
   <p>Comments: <%= @post.comments_counter %></p>
 </div>
 
 <div class="post-comment">
   <%= render "comments/new" %>
-
-  <%= button_to like_user_post_path(@post.id), method: :post, remote: true, id: 'like-button' do %>
-    Like
-  <% end %>
+  <p>Likes: <%= @post.likes_counter %></p>
 </div>
 
 <ul>
