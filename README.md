@@ -96,9 +96,9 @@ To run the project, execute the following command in the terminal:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add validations to the model.
-- Create controllers.
-- Create a web interface.
+- **Add Authentication page**
+- **Add authorization rules.**
+- **Add API endpoints.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
