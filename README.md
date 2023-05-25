@@ -1,5 +1,8 @@
-# Blog_App
 <a name="readme-top"></a>
+<!-- TABLE OF CONTENTS -->
+<div align = "center">
+  <img src="./personal/IM logo.png alt="logo" width="140"  height="auto" />
+</div>
 
 # 📗 Table of Contents
 
@@ -21,7 +24,7 @@
 
 # 📖 Blog App <a name="about-blog-project"></a>
 
-This is a Blog App build with Rails. In this project, I will create all controllers and views for my Blog app. As I won't be processing any data yet, I will add simple placeholders for my views with plain HTML. And now is time for forms :) .
+This is a Blog App build with Rails. In this project, I will create all controllers and views for my Blog app. As I won't be processing any data yet, I will add simple placeholders for my views with plain HTML. And now is time for forms :) . We added Devise too.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -96,9 +99,9 @@ To run the project, execute the following command in the terminal:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add validations to the model.
-- Create controllers.
-- Create a web interface.
+- **Add Authentication page**
+- **Add authorization rules.**
+- **Add API endpoints.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

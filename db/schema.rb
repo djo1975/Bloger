@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_230_511_172_910) do
+ActiveRecord::Schema[7.0].define(version: 20_230_525_095_536) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -44,6 +44,27 @@ ActiveRecord::Schema[7.0].define(version: 20_230_511_172_910) do
     t.index ['author_id'], name: 'index_posts_on_author_id'
   end
 
+  # create_table 'recoverables', force: :cascade do |t|
+  #   t.string 'email', default: '', null: false
+  #   t.string 'encrypted_password', default: '', null: false
+  #   t.string 'reset_password_token'
+  #   t.datetime 'reset_password_sent_at'
+  #   t.datetime 'remember_created_at'
+  #   t.string 'confirmation_token'
+  #   t.datetime 'confirmed_at'
+  #   t.datetime 'confirmation_sent_at'
+  #   t.string 'unconfirmed_email'
+  #   t.integer 'failed_attempts', default: 0, null: false
+  #   t.string 'unlock_token'
+  #   t.datetime 'locked_at'
+  #   t.datetime 'created_at', null: false
+  #   t.datetime 'updated_at', null: false
+  #   t.index ['confirmation_token'], name: 'index_recoverables_on_confirmation_token', unique: true
+  #   t.index ['email'], name: 'index_recoverables_on_email', unique: true
+  #   t.index ['reset_password_token'], name: 'index_recoverables_on_reset_password_token', unique: true
+  #   t.index ['unlock_token'], name: 'index_recoverables_on_unlock_token', unique: true
+  # end
+
   create_table 'users', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'photo'
@@ -51,6 +72,15 @@ ActiveRecord::Schema[7.0].define(version: 20_230_511_172_910) do
     t.integer 'posts_counter', default: 0
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.string 'confirmation_token'
+    t.datetime 'confirmed_at'
+    t.datetime 'confirmation_sent_at'
+    t.string 'unconfirmed_email'
   end
 
   add_foreign_key 'comments', 'posts', column: 'posts_id'
