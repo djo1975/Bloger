@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id] == "sign_out"
+    if params[:id] == 'sign_out'
       # Logika za odjavu korisnika
       # Na primer, ako koristite Devise:
       sign_out(current_user)
@@ -15,5 +15,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
   end
-  
 end
