@@ -1,0 +1,262 @@
+/* Style for the container */
+.devise_new_password {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the form heading */
+.devise_new_password h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Style for the form labels */
+.devise_new_password label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style for the form fields */
+.devise_new_password input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Style for the form actions */
+.devise_new_password .actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Style for the submit button */
+.devise_new_password input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style for the submit button */
+.devise_edit_passwords input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style for the submit button on hover */
+.devise_new_password input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style for error messages */
+.devise_new_password .error-messages {
+  color: #f00;
+  margin-bottom: 10px;
+}
+
+/* Style for the container */
+.devise_edit_passwords {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the form heading */
+.devise_edit_passwords h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Style for the form labels */
+.devise_edit_passwords label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style for the form fields */
+.devise_edit_passwords input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Style for the minimum password length message */
+.devise_edit_passwords em {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Style for the form actions */
+.devise_edit_passwords .actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Style for the submit button on hover */
+.devise_edit_passwords input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Style for error messages */
+.devise_edit_passwords .error-messages {
+  color: #f00;
+  margin-bottom: 10px;
+}
+
+.devise_new_reg .actions input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.devise_new_session {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+.devise_new_session h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.devise_new_session .field {
+  margin-bottom: 10px;
+}
+
+.devise_new_session label {
+  font-weight: bold;
+}
+
+.devise_new_session input[type="email"],
+.devise_new_session input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.devise_new_session .actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.devise_new_session .actions input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.devise_new_session .actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.devise_new_session .actions input[type="submit"]:focus {
+  outline: none;
+}
+
+.devise_new_session .links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.devise_new_session .links a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.devise_new_reg {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+.devise_new_reg h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.devise_new_reg .field {
+  margin-bottom: 10px;
+}
+
+.devise_new_reg label {
+  font-weight: bold;
+}
+
+.devise_new_reg .user_field {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.devise_new_reg .user_input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.devise_new_reg input[type="email"],
+.devise_new_reg input[type="password"],
+.devise_new_reg textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.devise_new_reg .actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.devise_new_reg .actions input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.devise_new_reg .actions input[type="submit"]:focus {
+  outline: none;
+}
+
+.devise_new_reg .links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.devise_new_reg .links a {
+  color: #007bff;
+  text-decoration: none;
+  margin-left: 10px;
+}
