@@ -1,8 +1,9 @@
 <a name="readme-top"></a>
 <!-- TABLE OF CONTENTS -->
-<div align = "center">
-  <img src = "./personal/IM logo.png/>
+<div align="center">
+  <img src="./personal/IM logo.png" width="140" height="auto" />
 </div>
+
 
 # 📗 Table of Contents
 
