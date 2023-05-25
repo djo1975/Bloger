@@ -44,7 +44,7 @@ RSpec.describe 'User post index page:', type: :feature do
 
   scenario 'I can see a posts title.' do
     visit user_posts_path(@user1.id)
-    expect(page).to have_content('Post #5') # Assuming this is the first post
+    expect(page).to have_content('post four') # Assuming this is the first post
   end
 
   scenario ' I can see the post body.' do
@@ -53,7 +53,7 @@ RSpec.describe 'User post index page:', type: :feature do
   end
 
   scenario 'I can see the first comments on a post.' do
-    visit user_posts_path(@user1.id)
+    visit user_post_path(@user1.id, @post1.id)
     expect(page).to have_content(@post1.comments.first.text)
   end
 
@@ -72,9 +72,9 @@ RSpec.describe 'User post index page:', type: :feature do
     expect(page).to have_link('Paginate')
   end
 
-  scenario 'When I click on a post, it redirects me to that post show page.' do
+  scenario 'When I click on a post, it redirects me to that posts show page.' do
     visit user_posts_path(@user1.id)
-    click_link('post one')
-    expect(page).to have_current_path(user_post_path(@user1.id, @post1.id))
+    click_link('post four')
+    expect(page).to have_current_path(user_post_path(@user1.id, @user1.posts.fourth.id))
   end
 end
